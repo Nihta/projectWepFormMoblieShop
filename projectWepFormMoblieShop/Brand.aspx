@@ -45,16 +45,16 @@
                 </div>
 
                 <div class="card-body">
-
+                    <%-- Table Header --%>
                     <div class="align-items-center d-flex justify-content-between mb-2">
                         <div class="d-flex align-items-center">
-                            <span>Show</span>            
-                                <asp:DropDownList ID="DropDownListNumOfItemInPage" runat="server" CssClass="custom-select mx-2" AutoPostBack="true">
-                                    <asp:ListItem Value="5" Selected="True">5</asp:ListItem>
-                                    <asp:ListItem Value="10">10</asp:ListItem>
-                                    <asp:ListItem Value="25">25</asp:ListItem>
-                                    <asp:ListItem Value="50">50</asp:ListItem>
-                                </asp:DropDownList>
+                            <span>Show</span>
+                            <asp:DropDownList ID="DropDownListNumOfItemInPage" runat="server" CssClass="custom-select mx-2" AutoPostBack="true">
+                                <asp:ListItem Value="5" Selected="True">5</asp:ListItem>
+                                <asp:ListItem Value="10">10</asp:ListItem>
+                                <asp:ListItem Value="25">25</asp:ListItem>
+                                <asp:ListItem Value="50">50</asp:ListItem>
+                            </asp:DropDownList>
                             <span style="white-space: nowrap">item / page</span>
                         </div>
                         <div class="d-flex flex-row align-items-center">
@@ -62,6 +62,8 @@
                             <asp:TextBox ID="TextBoxSearch" CssClass="form-control" TextMode="Search" runat="server">Search ...</asp:TextBox>
                         </div>
                     </div>
+                    <%-- /Table Header --%>
+
 
                     <asp:GridView ID="gvBrands" runat="server"
                         CssClass="dataTable-table"
@@ -73,7 +75,8 @@
                         AllowSorting="True"
                         AutoGenerateColumns="False"
                         OnRowCreated="CustomersGridView_RowCreated"
-                        SortedAscendingHeaderStyle-CssClass="bg-red">
+                        SortedAscendingHeaderStyle-CssClass="bg-red"
+                        DataKeyNames="BrandID">
 
                         <Columns>
                             <asp:BoundField DataField="brandid"
@@ -90,19 +93,8 @@
                         <HeaderStyle CssClass="table-header" />
                         <RowStyle CssClass="table-header-row" />
 
-                        <%--                 <AlternatingRowStyle BackColor="White" />
-                        <EditRowStyle BackColor="#2461BF" />
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                       
-                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                        
+                        <SortedAscendingHeaderStyle CssClass="bg-red" />
 
-                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-
-                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                        <SortedDescendingHeaderStyle BackColor="#4870BE" />--%>
 
                         <%-- Pagination --%>
                         <PagerTemplate>
@@ -118,14 +110,18 @@
                             </div>
                         </PagerTemplate>
                         <%-- /Pagination --%>
-                        <SortedAscendingHeaderStyle CssClass="bg-red" />
                     </asp:GridView>
 
 
                     <asp:SqlDataSource ID="CustomersSqlDataSource"
-                        SelectCommand="select brandid, brandname from tblBrand"
                         ConnectionString="Data Source=.\sqlexpress;Initial Catalog=dbMoblieShop;Integrated Security=True"
-                        runat="server"></asp:SqlDataSource>
+                        SelectCommand="Select BrandID, BrandName from tblBrand"
+                        DeleteCommand="DELETE FROM tblBrand WHERE BrandID=@BrandID;"
+                        runat="server">
+                        <DeleteParameters>
+                            <asp:Parameter Name="BrandID" Type="Int32" />
+                        </DeleteParameters>
+                    </asp:SqlDataSource>
                 </div>
             </div>
 
