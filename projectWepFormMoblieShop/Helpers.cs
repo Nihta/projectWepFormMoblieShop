@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web.UI.WebControls;
 
 namespace projectWepFormMoblieShop
 {
@@ -27,7 +28,7 @@ namespace projectWepFormMoblieShop
 
     class SqlHelpers
     {
-        public static string connectString = @"Data Source=.\sqlexpress;Initial Catalog=dbBarberShopManager;Integrated Security=True";
+        public static string connectString = @"Data Source=.\sqlexpress;Initial Catalog=dbMoblieShop;Integrated Security=True";
 
         private SqlDataAdapter dataAdapter;
         private SqlCommandBuilder commandBuilder;
@@ -110,6 +111,17 @@ namespace projectWepFormMoblieShop
         {
             commandBuilder.GetUpdateCommand();
             dataAdapter.Update(dataTable);
+        }
+    }
+
+    class GridViewHelpers
+    {
+        public static BoundField CreateBoundField(string dataField, string headerText)
+        {
+            BoundField newField = new BoundField();
+            newField.DataField = dataField;
+            newField.HeaderText = headerText;
+            return newField;
         }
     }
 }
