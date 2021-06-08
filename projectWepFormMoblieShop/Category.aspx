@@ -11,7 +11,7 @@
         }
 
         .header-style-commands {
-            width: 80px;
+            width: 100px !important;
         }
     </style>
 </asp:Content>
