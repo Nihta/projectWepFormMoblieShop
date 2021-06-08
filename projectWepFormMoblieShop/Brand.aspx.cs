@@ -25,8 +25,18 @@ namespace projectWepFormMoblieShop
                 //Config();
             }
 
+            gvBrands.PageSize = Convert.ToInt32(DropDownListNumOfItemInPage.SelectedValue.ToString());
             //GetDataForGridView();
+        }
 
+        protected void link_Click(object sender, EventArgs e)
+        {
+            LinkButton linkbutton = (LinkButton)sender;  // get the link button which trigger the event
+            GridViewRow row = (GridViewRow)linkbutton.NamingContainer; // get the GridViewRow that contains the linkbutton
+            //TextBox1.Text = row.Cells[0].Text;  // get the first cell value of the row
+            //                                    // if you want to get controls in templatefield , just use row.FindControl
+            //Label3.Text = linkbutton.CommandArgument;
+            ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "$('#staticBackdrop').modal()", true);//show the modal
         }
 
         protected void GetDataForGridView()
@@ -54,6 +64,12 @@ namespace projectWepFormMoblieShop
         protected void CustomersGridView_DataBound(Object sender, EventArgs e)
         {
             GridViewRow pagerRow = gvBrands.BottomPagerRow;
+
+            if (pagerRow == null)
+            {
+                return;
+            }
+
             DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("PageDropDownList");
             Label pageLabel = (Label)pagerRow.Cells[0].FindControl("CurrentPageLabel");
 
@@ -78,6 +94,7 @@ namespace projectWepFormMoblieShop
                 int currentPage = gvBrands.PageIndex + 1;
                 pageLabel.Text = $"Page {currentPage} of {gvBrands.PageCount}";
             }
+
         }
         #endregion
 
@@ -86,10 +103,6 @@ namespace projectWepFormMoblieShop
             gvBrands.PageIndex = e.NewPageIndex;
             GetDataForGridView();
         }
-
-
-
-
 
         #region
         protected void CustomersGridView_RowCreated(Object sender, GridViewRowEventArgs e)
@@ -155,5 +168,57 @@ namespace projectWepFormMoblieShop
         }
         #endregion
 
+        protected void DropDownListNumOfItemInPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gvBrands.PageSize = Convert.ToInt32(DropDownListNumOfItemInPage.SelectedValue.ToString());
+        }
+
+
+        #region Handle Form
+        private bool IsInvalid()
+        {
+            if (TextBoxBrandName.Text.Length == 0)
+            {
+                Helpers.RenderAlerts(Helpers.AlertType.warning, LabelAlert, "Band name is empty!");
+                return false;
+            }
+
+            return true;
+        }
+        #endregion
+
+        protected void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            string brandName = TextBoxBrandName.Text;
+            string brandDesc = TextBoxBrandDesc.Text;
+
+
+            if (IsInvalid())
+            {
+
+                string query = string.Format(@"
+                    insert into tblBrand (BrandName, Description)
+                    values (N'{0}', N'{1}');",
+                    brandName, brandDesc);
+
+                if (SqlHelpers.ExecuteNonQuery(query) == 1)
+                {
+                    Helpers.ClearInput(TextBoxBrandName, TextBoxBrandDesc);
+                    LabelAlert.Text = "";
+                }
+
+                gvBrands.DataBind();
+            }
+        }
+
+        protected void CustomersSqlDataSource_Updating(object sender, SqlDataSourceCommandEventArgs e)
+        {
+            //e.Command.Parameters["@Name"].Value = ddlTests.
+        }
+
+        protected void gvBrands_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
     }
 }

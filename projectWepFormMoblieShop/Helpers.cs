@@ -24,6 +24,55 @@ namespace projectWepFormMoblieShop
         {
             return encodeMD5(encodeMD5(encodeMD5(passWord)));
         }
+
+        public enum AlertType
+        {
+            primary,
+            danger,
+            warning,
+            success,
+            info,
+        }
+
+        public static void RenderAlerts(AlertType alertType, Label label, string message)
+        {
+            string alert = "";
+
+            switch (alertType)
+            {
+                case AlertType.primary:
+                    alert = "primary";
+                    break;
+                case AlertType.danger:
+                    alert = "danger";
+                    break;
+                case AlertType.warning:
+                    alert = "warning";
+                    break;
+                case AlertType.success:
+                    alert = "success";
+                    break;
+                case AlertType.info:
+                    alert = "info";
+                    break;
+                default:
+                    alert = "primary";
+                    break;
+            }
+
+            string html = $"<div class='alert alert-{alert}' role='alert'>{message}</div>";
+
+            label.Text = html;
+        }
+
+
+        public static void ClearInput(params TextBox[] textBoxes)
+        {
+            foreach (TextBox tb in textBoxes)
+            {
+                tb.Text = "";
+            }
+        }
     }
 
     class SqlHelpers
