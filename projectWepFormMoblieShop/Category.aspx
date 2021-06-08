@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="projectWepFormMoblieShop.Category" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="Head" runat="server">
+<asp:Content ID="Head" ContentPlaceHolderID="Head" runat="server">
     <style>
         .header-style-id {
-            width: 30px;
+            width: 30px !important;
         }
 
         .w-30 {
@@ -15,7 +15,7 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+<asp:Content ID="ContentPlaceHolderBody" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 
     <form id="formCategorys" runat="server">
         <div class="card mx-2 my-2">
@@ -23,6 +23,7 @@
                 Category manager
             </div>
             <div class="card-body">
+                <%--GridView--%>
                 <asp:GridView ID="gvBrands" CssClass="dataTable-table"
                     DataSourceID="CategorysSqlDataSource"
                     EmptyDataText="No data available"
@@ -56,7 +57,7 @@
                                 <asp:TextBox Text='<%# Bind("CategoryDescription") %>' ID="TxtCateDesc" CssClass="form-control form-control-sm" runat="server"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
-
+                        <%--Actions--%>
                         <asp:TemplateField ShowHeader="False">
                             <HeaderStyle CssClass="header-style-commands"></HeaderStyle>
                             <EditItemTemplate>
@@ -69,11 +70,9 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-
-
-
                 </asp:GridView>
 
+                <%--Sql--%>
                 <asp:SqlDataSource ID="CategorysSqlDataSource"
                     ConnectionString="Data Source=.\sqlexpress;Initial Catalog=dbMoblieShop;Integrated Security=True"
                     SelectCommand="Select CategoryID, CategoryName, CategoryDescription from tblCategorys"
