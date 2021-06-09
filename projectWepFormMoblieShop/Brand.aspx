@@ -1,210 +1,165 @@
 ﻿<%@ Page Title="Brand" Language="C#" MasterPageFile="~/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Brand.aspx.cs" Inherits="projectWepFormMoblieShop.Brand" %>
 
-
 <asp:Content ID="Head" ContentPlaceHolderID="Head" runat="server">
     <style>
-        /*        .dataTable-table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 1rem;
-            color: #212529;
-            vertical-align: top;
-            border-color: #dee2e6;
-            text-align: left;
+        .header-style-id {
+            width: 30px !important;
         }
 
-            .dataTable-table tr > td,
-            .dataTable-table tr > th {
-                padding: 0.5rem 0.5rem;
-            }
+        .w-30 {
+            width: 30%;
+        }
 
-            .dataTable-table .table-header-row:hover {
-                background-color: rgba(0, 0, 0, 0.075);
-            }
-
-            .dataTable-table .table-page {
-                background-color: red;
-            }
-
-        .bg-red {
-            background-color: red
-        }*/
+        .header-style-commands {
+            width: 100px !important;
+        }
     </style>
 </asp:Content>
 
-
 <asp:Content ID="ContentPlaceHolderBody" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 
-    <form id="formBrand" runat="server">
-        <div class="container-fluid px-2 py-4">
+    <form id="formCategorys" runat="server">
+        <%-- Alert --%>
+        <asp:Panel ID="PanelAlert" CssClass="alert alert-warning alert-dismissible fade show" runat="server" Visible="false">
+            <strong class="me-2">Add failed!</strong><asp:Label ID="LabelAlertMess" runat="server" Text="Label"></asp:Label>.
+            <button type="button" class="btn btn-close btn-sm close" data-dismiss="alert" aria-label="Close">
+            </button>
+        </asp:Panel>
 
-            <div class="row">
-                <asp:Panel ID="Panel1" runat="server" CssClass="col-4" Visible="true">
-                    <div class="card">
-                        <div class="card-header">
-                            Control
+        <div class="card mx-2 my-2">
+            <div class="card-header">
+                Brand manager
+            </div>
+            <div class="card-body">
+                <%-- Table Header --%>
+                <div class="align-items-center d-flex justify-content-between mb-2">
+                    <div class="d-none d-sm-flex align-items-center">
+                        <span>Show</span>
+                        <asp:DropDownList ID="ddlItemInPage" runat="server" CssClass="form-select form-select-sm mx-2" AutoPostBack="true">
+                            <asp:ListItem Value="5" Selected="True">5</asp:ListItem>
+                            <asp:ListItem Value="10">10</asp:ListItem>
+                            <asp:ListItem Value="25">25</asp:ListItem>
+                            <asp:ListItem Value="50">50</asp:ListItem>
+                        </asp:DropDownList>
+                        <span style="white-space: nowrap">item / page</span>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-sm btn-primary me-2" data-toggle="modal" data-target="#modalAdd">
+                            Add
+                        </button>
+                        <%--<asp:TextBox ID="TextBoxSearch" CssClass="form-control form-control-sm" TextMode="Search" runat="server">Search ...</asp:TextBox>
+                        <asp:Button ID="BtnSearch" CssClass="btn btn-primary btn-sm mx-2" Text="Seach" runat="server" />--%>
+                    </div>
+                </div>
+                <%-- /Table Header --%>
+
+                <%--GridView--%>
+                <asp:GridView ID="gvCategory" CssClass="dataTable-table"
+                    DataSourceID="BrandsSqlDataSource"
+                    DataKeyNames="BrandID"
+                    EmptyDataText="No data available"
+                    AllowPaging="True"
+                    PageSize="2"
+                    AllowSorting="True"
+                    AutoGenerateColumns="false"
+                    OnDataBound="GridView_DataBound"
+                    SortedAscendingHeaderStyle-CssClass="asc"
+                    SortedDescendingHeaderStyle-CssClass="desc"
+                    runat="server">
+                    <Columns>
+                        <asp:BoundField HeaderText="ID" ReadOnly="true" HeaderStyle-CssClass="header-style-id"
+                            DataField="BrandID" SortExpression="BrandID"></asp:BoundField>
+
+                        <asp:TemplateField HeaderText="Brand name" SortExpression="BrandName" HeaderStyle-CssClass="w-30">
+                            <ItemTemplate>
+                                <asp:Label runat="server" Text='<%# Bind("BrandName") %>' ID="LabelBrandName"></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox Text='<%# Bind("BrandName") %>' ID="TxtBrandName" CssClass="form-control form-control-sm" runat="server"></asp:TextBox>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Description" SortExpression="BrandDescription" HeaderStyle-CssClass="w-50">
+                            <ItemTemplate>
+                                <asp:Label runat="server" Text='<%# Bind("BrandDescription") %>' ID="LabelBrandDesc"></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox Text='<%# Bind("BrandDescription") %>' ID="TxtBrandDesc" CssClass="form-control form-control-sm" runat="server"></asp:TextBox>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+
+                        <%--Actions--%>
+                        <asp:TemplateField ShowHeader="False">
+                            <HeaderStyle CssClass="header-style-commands"></HeaderStyle>
+                            <EditItemTemplate>
+                                <asp:LinkButton runat="server" Text="Update" CommandName="Update" CausesValidation="True" ID="LinkButton1" CssClass="btn btn-outline-primary btn-sm me-2 mb-2 mb-md-0"></asp:LinkButton>
+                                <asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-outline-secondary btn-sm"></asp:LinkButton>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton runat="server" Text="Edit" CommandName="Edit" CausesValidation="False" ID="LinkButton1" CssClass="btn btn-outline-primary btn-sm me-2 mb-2 mb-md-0"></asp:LinkButton>
+                                <asp:LinkButton runat="server" Text="Delete" CommandName="Delete" OnClientClick="return confirm('Are you sure?');" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-outline-danger btn-sm"></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+
+                    <%-- Pagination --%>
+                    <PagerTemplate>
+                        <div class="w-100 d-flex justify-content-between align-items-center">
+                            <div>
+                                <asp:Label ID="CurrentPageLabel" runat="server" />
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <asp:Label ID="MessageLabel" runat="server" Text="Page:" CssClass="pe-2" />
+                                <asp:DropDownList ID="PageDropDownList" AutoPostBack="true" runat="server" CssClass="form-select form-select-sm" OnSelectedIndexChanged="PageDropDownList_SelectedIndexChanged" />
+                            </div>
                         </div>
+                    </PagerTemplate>
+                    <%-- /Pagination --%>
+                </asp:GridView>
 
-                        <div class="card-body">
-                            <asp:Label ID="LabelAlert" runat="server"></asp:Label>
+                <%--Sql--%>
+                <asp:SqlDataSource ID="BrandsSqlDataSource"
+                    ConnectionString="Data Source=.\sqlexpress;Initial Catalog=dbMoblieShop;Integrated Security=True"
+                    SelectCommand="Select BrandID, BrandName, BrandDescription from tblBrands"
+                    DeleteCommand="DELETE FROM tblBrands WHERE BrandID=@BrandID;"
+                    UpdateCommand="UPDATE tblBrands SET BrandName = @BrandName, BrandDescription = @BrandDescription WHERE (BrandID = @BrandID)"
+                    runat="server">
+                    <DeleteParameters>
+                        <asp:Parameter Name="BrandID" Type="Int32" />
+                    </DeleteParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="BrandID" Type="Int32" />
+                        <asp:Parameter Name="BrandName" Type="String" />
+                        <asp:Parameter Name="BrandDescription" Type="String" />
+                    </UpdateParameters>
+                </asp:SqlDataSource>
+            </div>
+        </div>
 
-                            <div class="mb-2">
-                                <label for="TextBoxAddName" class="col-form-label">Brand name (*):</label>
-                                <asp:TextBox ID="TextBoxBrandName" runat="server" CssClass="form-control"></asp:TextBox>
-                            </div>
-                            <div class="mb-2">
-                                <label for="TextBoxBrandDesc" class="col-form-label">Description:</label>
-                                <asp:TextBox ID="TextBoxBrandDesc" runat="server" CssClass="form-control"></asp:TextBox>
-                            </div>
-
-                            <asp:Button ID="ButtonAdd" runat="server" CssClass="btn btn-primary mt-2" Text="Save" OnClick="ButtonAdd_Click" />
+        <!-- Modal -->
+        <div class="modal fade" id="modalAdd" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="modalLabel">Add new brand</h6>
+                        <button type="button" class="btn btn-sm btn-close close" data-dismiss="modal" aria-label="Close" />
+                    </div>
+                    <div class="modal-body">
+                        <!-- TxtBrandName -->
+                        <div class="form-group">
+                            <label for="TxtBrandName" class="col-form-label col-form-label-sm">Brand name:</label>
+                            <asp:TextBox ID="TxtBrandName" CssClass="form-control form-control-sm" TextMode="SingleLine" runat="server" />
+                        </div>
+                        <!-- TxtBrandDesc -->
+                        <div class="form-group">
+                            <label for="TxtBrandDesc" class="col-form-label col-form-label-sm">Brand description:</label>
+                            <asp:TextBox ID="TxtBrandDesc" CssClass="form-control form-control-sm" TextMode="SingleLine" runat="server" />
                         </div>
                     </div>
-                </asp:Panel>
-
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            Brand manager
-                        </div>
-
-                        <div class="card-body">
-                            <%-- Table Header --%>
-                            <div class="align-items-center d-flex justify-content-between mb-2">
-                                <div class="d-flex align-items-center">
-                                    <span>Show</span>
-                                    <asp:DropDownList ID="DropDownListNumOfItemInPage" runat="server" CssClass="custom-select mx-2" AutoPostBack="true" OnSelectedIndexChanged="DropDownListNumOfItemInPage_SelectedIndexChanged">
-                                        <asp:ListItem Value="5" Selected="True">5</asp:ListItem>
-                                        <asp:ListItem Value="10">10</asp:ListItem>
-                                        <asp:ListItem Value="25">25</asp:ListItem>
-                                        <asp:ListItem Value="50">50</asp:ListItem>
-                                    </asp:DropDownList>
-                                    <span style="white-space: nowrap">item / page</span>
-                                </div>
-                                <div class="d-flex flex-row align-items-center">
-                                    <asp:TextBox ID="TextBoxSearch" CssClass="form-control" TextMode="Search" runat="server">Search ...</asp:TextBox>
-                                    <asp:Button ID="BtnSearch" CssClass="btn btn-primary mx-2" Text="Seach" runat="server" />
-                                </div>
-                            </div>
-                            <%-- /Table Header --%>
-
-                            <asp:GridView ID="gvBrands" CssClass="dataTable-table" runat="server"
-                                DataSourceID="CustomersSqlDataSource"
-                                AllowPaging="True"
-                                PageSize="2"
-                                OnDataBound="CustomersGridView_DataBound"
-                                EmptyDataText="No data available."
-                                AllowSorting="True"
-                                AutoGenerateColumns="False"
-                                OnRowCreated="CustomersGridView_RowCreated"
-                                SortedAscendingHeaderStyle-CssClass="bg-red"
-                                DataKeyNames="BrandID"
-                                OnRowDataBound="gvBrands_RowDataBound"
-                                ShowFooter="True"
-                                EnableViewState="False">
-
-
-                                <%--          <Columns>
-                                    <asp:BoundField DataField="BrandID"
-                                        ReadOnly="true"
-                                        HeaderText="ID"
-                                        SortExpression="BrandID"
-                                        HeaderStyle-Wrap="false"></asp:BoundField>
-
-                                    <asp:TemplateField HeaderText="BrandName" SortExpression="BrandName">
-                                        <EditItemTemplate>
-                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("BrandName") %>' >  
-                                            </asp:TextBox>
-                                        </EditItemTemplate>
-                                        <ItemTemplate>
-                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("BrandName") %>'>
-                                            </asp:Label>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-
-                                    <asp:TemplateField HeaderText="Description" SortExpression="Description">
-                                        <ItemTemplate>
-                                            <%# Eval("Description") %>
-                                        </ItemTemplate>
-                                        <EditItemTemplate>
-                                            <asp:DropDownList ID="ddlTests" runat="server" CssClass="custom-select mx-2" AutoPostBack="true"
-                                                DataSourceID="SqlDataSourceTest"
-                                                DataTextField="TestName"
-                                                DataValueField="TestID">
-                                            </asp:DropDownList>
-                                        </EditItemTemplate>
-                                    </asp:TemplateField>
-
-                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
-
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <asp:Button ID="deletebtn" runat="server" CommandName="Delete" Text="Delete"
-                                                OnClientClick="return confirm('Are you sure?');" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>--%>
-
-                                <Columns>
-
-
-                                    <asp:TemplateField HeaderText="BrandID" SortExpression="BrandID">
-                                        <EditItemTemplate>
-                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("BrandID") %>'></asp:TextBox>
-                                        </EditItemTemplate>
-                                        <ItemTemplate>
-                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("BrandID") %>'></asp:Label>
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            <asp:TextBox ID="NewDiscontinued" runat="server" />
-                                        </FooterTemplate>
-                                    </asp:TemplateField>
-
-                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" ShowSelectButton="True" />
-                                </Columns>
-
-                                <HeaderStyle CssClass="table-header" />
-                                <RowStyle CssClass="table-header-row" />
-
-                                <SortedAscendingHeaderStyle CssClass="bg-red" />
-
-
-                                <%-- Pagination --%>
-                                <PagerTemplate>
-                                    <div class="w-100 d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <asp:Label ID="CurrentPageLabel" runat="server" />
-                                        </div>
-                                        <div style="text-align: right">
-                                            <asp:Label ID="MessageLabel" runat="server" Text="Select a page:" CssClass="mr-2" />
-                                            <asp:DropDownList ID="PageDropDownList" AutoPostBack="true" runat="server" CssClass="custom-select w-auto"
-                                                OnSelectedIndexChanged="PageDropDownList_SelectedIndexChanged" />
-                                        </div>
-                                    </div>
-                                </PagerTemplate>
-                                <%-- /Pagination --%>
-                            </asp:GridView>
-
-                            <asp:SqlDataSource ID="CustomersSqlDataSource"
-                                ConnectionString="Data Source=.\sqlexpress;Initial Catalog=dbMoblieShop;Integrated Security=True"
-                                SelectCommand="Select BrandID, BrandName, Description from tblBrand"
-                                DeleteCommand="DELETE FROM tblBrand WHERE BrandID=@BrandID;"
-                                UpdateCommand="UPDATE tblBrand SET BrandName = @BrandName, Description = @Description WHERE (BrandID = @BrandID)"
-                                runat="server" OnUpdating="CustomersSqlDataSource_Updating">
-                                <DeleteParameters>
-                                    <asp:Parameter Name="BrandID" Type="Int32" />
-                                </DeleteParameters>
-                                <UpdateParameters>
-                                    <asp:Parameter Name="BrandID" Type="Int32" />
-                                    <asp:Parameter Name="BrandName" Type="String" />
-                                    <asp:Parameter Name="Description" Type="String" />
-                                </UpdateParameters>
-                            </asp:SqlDataSource>
-
-                            <asp:SqlDataSource ID="SqlDataSourceTest"
-                                ConnectionString="Data Source=.\sqlexpress;Initial Catalog=dbMoblieShop;Integrated Security=True"
-                                SelectCommand="Select TestID, TestName from tblTests" runat="server"></asp:SqlDataSource>
-                        </div>
+                    <div class="modal-footer">
+                        <asp:Button ID="BtnAdd" CssClass="btn btn-sm btn-primary" Text="Add" runat="server" OnClick="BtnAdd_Click" />
+                        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

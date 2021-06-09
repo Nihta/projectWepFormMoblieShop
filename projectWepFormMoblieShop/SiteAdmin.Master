@@ -10,8 +10,7 @@
     <%--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />--%>
     <link rel="stylesheet" href="theme/style-ad.css" />
 
-    <asp:ContentPlaceHolder ID="Head" runat="server">
-    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder ID="Head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -35,9 +34,7 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
-
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
