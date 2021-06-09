@@ -24,13 +24,40 @@ namespace projectWepFormMoblieShop
         protected global::System.Web.UI.HtmlControls.HtmlForm formCategorys;
 
         /// <summary>
-        /// gvBrands control.
+        /// PanelAlert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBrands;
+        protected global::System.Web.UI.WebControls.Panel PanelAlert;
+
+        /// <summary>
+        /// LabelAlertMess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAlertMess;
+
+        /// <summary>
+        /// ddlItemInPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlItemInPage;
+
+        /// <summary>
+        /// gvCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCategory;
 
         /// <summary>
         /// CategorysSqlDataSource control.
@@ -40,5 +67,32 @@ namespace projectWepFormMoblieShop
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource CategorysSqlDataSource;
+
+        /// <summary>
+        /// TxtCategoryName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCategoryName;
+
+        /// <summary>
+        /// TxtCategoryDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCategoryDesc;
+
+        /// <summary>
+        /// BtnAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAdd;
     }
 }
