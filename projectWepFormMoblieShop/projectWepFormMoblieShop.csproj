@@ -109,6 +109,7 @@
     <Content Include="404.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Brand.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="Category.aspx" />
     <Content Include="CommingSoon.aspx" />
     <Content Include="Contact.aspx" />
@@ -290,6 +291,13 @@
     </Compile>
     <Compile Include="Brand.aspx.designer.cs">
       <DependentUpon>Brand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Category.aspx.cs">
       <DependentUpon>Category.aspx</DependentUpon>
