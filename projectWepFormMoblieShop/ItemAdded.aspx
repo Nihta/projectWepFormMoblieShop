@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemAdded.aspx.cs" Inherits="projectWepFormMoblieShop.ItemAdded" %>
+﻿<%@ Page Title="Item added" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ItemAdded.aspx.cs" Inherits="projectWepFormMoblieShop.ItemAdded" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container-fluid cart-added py-4">
