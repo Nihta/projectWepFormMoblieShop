@@ -57,7 +57,7 @@
                             <a class="nav-link" href="/">shop<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item px-2">
-                            <a class="nav-link" href="#">blog</a>
+                            <a class="nav-link" href="CommingSoon.aspx">blog</a>
                         </li>
                     </ul>
 
@@ -96,7 +96,7 @@
                                         <a class="footer__text" href="Contact.aspx">contact us</a>
                                     </li>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">terms of service</a>
+                                        <a class="footer__text" href="CommingSoon.aspx">terms of service</a>
                                     </li>
                                 </ul>
                             </div>
@@ -120,31 +120,19 @@
                             </div>
 
                             <div class="col-lg-3 col-6 mb-3">
-                                <h2 class="footer__text--title">BREW GUIDES</h2>
+                                <h2 class="footer__text--title">lorem</h2>
                                 <ul>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">Aeropress</a>
+                                        <a class="footer__text" href="#">lorem</a>
                                     </li>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">Chemex</a>
+                                        <a class="footer__text" href="#">lorem</a>
                                     </li>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">Cold Brew</a>
+                                        <a class="footer__text" href="#">lorem</a>
                                     </li>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">Pour Over</a>
-                                    </li>
-                                    <li class="footer__link">
-                                        <a class="footer__text" href="#">French Press</a>
-                                    </li>
-                                    <li class="footer__link">
-                                        <a class="footer__text" href="#">New Orleans-style Iced</a>
-                                    </li>
-                                    <li class="footer__link">
-                                        <a class="footer__text" href="#">Siphon</a>
-                                    </li>
-                                    <li class="footer__link">
-                                        <a class="footer__text" href="#">More ...</a>
+                                        <a class="footer__text" href="#">lorem</a>
                                     </li>
                                 </ul>
                             </div>
@@ -195,7 +183,7 @@
                                     </div>
                                     <div>
                                         <h2 class="footer__text--title my-2">Check out our blog</h2>
-                                        <a class="custom-link f14 text-decoration-none" href="#">READ MORE<i class="fas fa-chevron-right"></i></a>
+                                        <a class="custom-link f14 text-decoration-none" href="CommingSoon.aspx">READ MORE<i class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
                             </div>
