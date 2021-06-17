@@ -18,7 +18,7 @@
       <div class="col-12 col-md-6">
         <div class="p-5 pl-0">
           <h3 class="f24 text-capitalize mb-3">Contact us</h3>
-          <form>
+          <form id="formContact" runat="server">
             <div class="form-group">
               <label class="f14 mb-1" for="fieldName">Name
                 <span class="color-red"><abbr title="required">*</abbr></span>
