@@ -8,7 +8,7 @@
                     <h1 class="f24 mb-3">Item added to cart!</h1>
                     <div class="d-flex flex-row flex-md-column align-items-center">
                         <div class="mr-4 mr-md-0">
-                            <div class="cart-added__img-container">
+                            <div class="cart-added__img-container h-auto">
                                 <img class="img-fluid"
                                     src="https://source.unsplash.com/weekly?samsung"
                                     alt="*">
