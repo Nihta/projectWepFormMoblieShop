@@ -1,42 +1,37 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="projectWepFormMoblieShop._Default" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="projectWepFormMoblieShop._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="container feature mb-5">
+        <hr>
+        <div class="row no-gutters">
+            <div class="col-12 col-lg-4">
+                <div class="feature__item d-flex py-4 justify-content-center align-items-center flex-column flex-lg-row text-center text-lg-left">
+                    <img class="mr-2" src="images/car.svg" alt="car">
+                    <div>
+                        <h4 class="f16 text-uppercase font-weight-bold mb-1">free shipping</h4>
+                        <p class="f14 text-capitalize mb-0">free shipping world wide</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="feature__item feature__item--center d-flex py-4 justify-content-center align-items-center flex-column flex-lg-row text-center text-lg-left">
+                    <img class="mr-2" src="images/time.svg" alt="time">
+                    <div>
+                        <h4 class="f16 text-uppercase font-weight-bold mb-1">24 X 7 service</h4>
+                        <p class="f14 text-capitalize mb-0">online service for new customer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="feature__item d-flex py-4 justify-content-center align-items-center flex-column flex-lg-row text-center text-lg-left">
+                    <img class="mr-2" src="images/speaker.svg" alt="speaker">
+                    <div>
+                        <h4 class="f16 text-uppercase font-weight-bold mb-1">festival offer</h4>
+                        <p class="f14 text-capitalize mb-0">new online special festival offer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
     </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
-
 </asp:Content>
