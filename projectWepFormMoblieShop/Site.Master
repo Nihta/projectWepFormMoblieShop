@@ -120,19 +120,16 @@
                             </div>
 
                             <div class="col-lg-3 col-6 mb-3">
-                                <h2 class="footer__text--title">lorem</h2>
+                                <h2 class="footer__text--title">Support</h2>
                                 <ul>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">lorem</a>
+                                        <a class="footer__text" href="#">Warranty: (84) 123 456 789</a>
                                     </li>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">lorem</a>
+                                        <a class="footer__text" href="#">Submit a warranty claim</a>
                                     </li>
                                     <li class="footer__link">
-                                        <a class="footer__text" href="#">lorem</a>
-                                    </li>
-                                    <li class="footer__link">
-                                        <a class="footer__text" href="#">lorem</a>
+                                        <a class="footer__text" href="#">Submit an exchange request</a>
                                     </li>
                                 </ul>
                             </div>
