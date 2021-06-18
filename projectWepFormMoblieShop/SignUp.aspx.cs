@@ -14,38 +14,33 @@ namespace projectWepFormMoblieShop
 
         }
 
-        private bool isValid(string fullName, string userName, string passWord, string passRepeat)
+        private bool isValid(string email, string userName, string passWord, string passRepeat)
         {
             LabelWarning.Text = "";
-            if (Validation.IsTextInvalid(LabelWarning, fullName, 5, 24, "Full name"))
+
+            if (Validation.IsTextInvalid(LabelWarning, userName, 5, 20, "User name"))
             {
-                if (Validation.IsTextInvalid(LabelWarning, userName, 5, 20, "User name"))
+                if (Validation.IsTextInvalid(LabelWarning, passWord, 3, 20, "Pass word"))
                 {
-                    if (Validation.IsTextInvalid(LabelWarning, passWord, 3, 20, "Pass word"))
+                    if (passWord == passRepeat)
                     {
-                        if (passWord == passRepeat)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            Helpers.RenderAlerts(Helpers.AlertType.warning, LabelWarning, $"Mật khẩu không khớp!");
-                        }
+                        return true;
                     }
                     else
                     {
-                        SetFocus(TextBoxPassWord);
+                        Helpers.RenderAlerts(Helpers.AlertType.warning, LabelWarning, $"Re-entered password does not match!");
                     }
                 }
                 else
                 {
-                    SetFocus(TextBoxUserName);
+                    SetFocus(TextBoxPassWord);
                 }
             }
             else
             {
-                SetFocus(TextBoxFullName);
+                SetFocus(TextBoxUserName);
             }
+
 
 
             return false;
@@ -53,12 +48,12 @@ namespace projectWepFormMoblieShop
 
         protected void BtnSignup_Click(object sender, EventArgs e)
         {
-            string fullName = TextBoxFullName.Text;
+            string email = TextBoxEmail.Text;
             string userName = TextBoxUserName.Text;
             string passRepeat = TextBoxPassWordRepeat.Text;
             string passWord = TextBoxPassWord.Text;
 
-            if (isValid(fullName, userName, passWord, passRepeat))
+            if (isValid(email, userName, passWord, passRepeat))
             {
 
                 //if (UserHelpers.CheckUserNameExist(userName))

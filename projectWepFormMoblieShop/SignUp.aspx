@@ -17,25 +17,30 @@
                 <form id="formSignUp" runat="server">
                     <div>
                         <div class="form-group">
-                            <label class="f16 text-capitalize" for="TextBoxFullName">Full name</label>
-                            <asp:TextBox ID="TextBoxFullName" runat="server" class="form-control custom__select" TextMode="SingleLine"></asp:TextBox>
+                            <label class="f16 text-capitalize" for="TextBoxFullName">
+                                Email<span class="color-red">
+                                    <abbr title="required">*</abbr></span></label>
+                            <asp:TextBox ID="TextBoxEmail" runat="server" class="form-control custom__select" TextMode="Email"></asp:TextBox>
                         </div>
 
                         <div class="form-group">
-                            <label class="f16 text-capitalize" for="TextBoxUserName">User name <span class="color-red">
-                                <abbr title="required">*</abbr></span></label>
+                            <label class="f16 text-capitalize" for="TextBoxUserName">
+                                User name <span class="color-red">
+                                    <abbr title="required">*</abbr></span></label>
                             <asp:TextBox ID="TextBoxUserName" runat="server" class="form-control custom__select" TextMode="SingleLine"></asp:TextBox>
                         </div>
 
                         <div class="form-group">
-                            <label class="f16 text-capitalize" for="TextBoxPassWord">Password  <span class="color-red">
-                                <abbr title="required">*</abbr></span></label>
+                            <label class="f16 text-capitalize" for="TextBoxPassWord">
+                                Password  <span class="color-red">
+                                    <abbr title="required">*</abbr></span></label>
                             <asp:TextBox ID="TextBoxPassWord" runat="server" class="form-control custom__select" TextMode="Password"></asp:TextBox>
                         </div>
 
                         <div class="form-group">
-                            <label class="f16 text-capitalize" for="TextBoxPassWord">Confirm password  <span class="color-red">
-                                <abbr title="required">*</abbr></span></label>
+                            <label class="f16 text-capitalize" for="TextBoxPassWord">
+                                Confirm password  <span class="color-red">
+                                    <abbr title="required">*</abbr></span></label>
                             <asp:TextBox ID="TextBoxPassWordRepeat" runat="server" class="form-control custom__select" TextMode="Password"></asp:TextBox>
                         </div>
 

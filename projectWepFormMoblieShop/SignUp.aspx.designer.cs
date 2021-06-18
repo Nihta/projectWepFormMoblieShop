@@ -33,13 +33,13 @@ namespace projectWepFormMoblieShop
         protected global::System.Web.UI.HtmlControls.HtmlForm formSignUp;
 
         /// <summary>
-        /// TextBoxFullName control.
+        /// TextBoxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFullName;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
 
         /// <summary>
         /// TextBoxUserName control.
