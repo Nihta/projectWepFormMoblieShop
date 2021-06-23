@@ -191,6 +191,8 @@
             </div>
         </div>
 
+    </div>
+
 
     <div class="container feature mb-5">
         <hr>
@@ -225,4 +227,15 @@
         </div>
         <hr>
     </div>
+
+    
+  <div class="container p-5 text-center">
+    <p class="f20">
+      Do you need support? We are happy to help!
+      <br>
+      Send us an email at <a class="custom-link text-decoration-none"
+        href="mailto:support@bluebottlecoffee.com">support@nihta68shop.com</a>
+    </p>
+  </div>
+
 </asp:Content>
