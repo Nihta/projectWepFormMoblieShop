@@ -69,22 +69,58 @@ namespace projectWepFormMoblieShop
         protected global::System.Web.UI.WebControls.SqlDataSource UsersSqlDataSource;
 
         /// <summary>
-        /// TxtBrandName control.
+        /// TxtUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBrandName;
+        protected global::System.Web.UI.WebControls.TextBox TxtUserName;
 
         /// <summary>
-        /// TxtBrandDesc control.
+        /// TxtUserPassWord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtBrandDesc;
+        protected global::System.Web.UI.WebControls.TextBox TxtUserPassWord;
+
+        /// <summary>
+        /// ddlRole control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlRole;
+
+        /// <summary>
+        /// TxtFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtFullName;
+
+        /// <summary>
+        /// TxtUsePhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtUsePhone;
+
+        /// <summary>
+        /// TxtUserEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtUserEmail;
 
         /// <summary>
         /// BtnAdd control.

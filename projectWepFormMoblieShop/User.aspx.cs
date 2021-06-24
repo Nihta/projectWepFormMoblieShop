@@ -58,10 +58,17 @@ namespace projectWepFormMoblieShop
         #region Handle Add
         private bool IsInvalid()
         {
-            if (TxtBrandName.Text.Length == 0)
+            if (TxtUserName.Text.Length == 0)
             {
                 PanelAlert.Visible = true;
-                LabelAlertMess.Text = "Category name is empty!";
+                LabelAlertMess.Text = "User name is empty!";
+                return false;
+            }
+
+            if (TxtUserPassWord.Text.Length == 0)
+            {
+                PanelAlert.Visible = true;
+                LabelAlertMess.Text = "Passwords is empty!";
                 return false;
             }
 
@@ -70,20 +77,25 @@ namespace projectWepFormMoblieShop
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            string brandName = TxtBrandName.Text;
-            string brandDesc = TxtBrandDesc.Text;
+            string UserName = TxtUserName.Text;
+            string UserPassWord = Helpers.encodePassWord(TxtUserPassWord.Text);
+            string UserFullName = TxtFullName.Text;
+            int UserRole = Convert.ToInt32(ddlRole.SelectedValue.ToString());
+            string UserEmail = TxtUserEmail.Text;
+            string UsePhone = TxtUsePhone.Text;
 
             if (IsInvalid())
             {
                 string query = string.Format(@"
-                    insert into tblBrands (BrandName, BrandDescription)
-                    values (N'{0}', N'{1}');",
-                    brandName, brandDesc);
+                insert into tblUsers
+                (UserName, UserPassWord, UserEmail, UserRole, UsePhone, UserFullName)
+                values (N'{0}', N'{1}', N'{2}', {3}, '{4}', N'{5}');
+                ", UserName, UserPassWord, UserEmail, UserRole, UsePhone, UserFullName);
 
                 if (SqlHelpers.ExecuteNonQuery(query) == 1)
                 {
                     gvCategory.DataBind();
-                    Helpers.ClearInput(TxtBrandName, TxtBrandDesc);
+                    Helpers.ClearInput(TxtUserName, TxtUserPassWord, TxtFullName, TxtUserEmail, TxtUsePhone);
                     PanelAlert.Visible = false;
                 }
             }

@@ -99,7 +99,7 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:TextBox Text='<%# Bind("UserRole") %>' ID="TxtUserRole" CssClass="form-control form-control-sm" runat="server"></asp:TextBox>
-<%--                                <asp:DropDownList ID="ddlUserRole" runat="server"  CssClass="form-select form-select-sm" >
+                                <%--                                <asp:DropDownList ID="ddlUserRole" runat="server"  CssClass="form-select form-select-sm" >
                                     <asp:ListItem Value="0">Admin</asp:ListItem>
                                     <asp:ListItem Value="1">Customer</asp:ListItem>
                                 </asp:DropDownList>--%>
@@ -168,15 +168,40 @@
                         <button type="button" class="btn btn-sm btn-close close" data-dismiss="modal" aria-label="Close" />
                     </div>
                     <div class="modal-body">
-                        <!-- TxtBrandName -->
+                        <!-- UserName -->
                         <div class="form-group">
-                            <label for="TxtBrandName" class="col-form-label col-form-label-sm">Brand name:</label>
-                            <asp:TextBox ID="TxtBrandName" CssClass="form-control form-control-sm" TextMode="SingleLine" runat="server" />
+                            <label for="TxtUserName" class="col-form-label col-form-label-sm">User name (*):</label>
+                            <asp:TextBox ID="TxtUserName" CssClass="form-control form-control-sm" TextMode="SingleLine" runat="server" MaxLength="30" />
                         </div>
-                        <!-- TxtBrandDesc -->
+                        <!-- UserPassWord -->
                         <div class="form-group">
-                            <label for="TxtBrandDesc" class="col-form-label col-form-label-sm">Brand description:</label>
-                            <asp:TextBox ID="TxtBrandDesc" CssClass="form-control form-control-sm" TextMode="SingleLine" runat="server" />
+                            <label for="TxtUserPassWord" class="col-form-label col-form-label-sm">Password (*):</label>
+                            <asp:TextBox ID="TxtUserPassWord" CssClass="form-control form-control-sm" TextMode="Password" runat="server" MaxLength="30"  />
+                        </div>
+                        <!-- UserRole -->
+                        <div class="form-group">
+                            <label for="ddlRole" class="col-form-label col-form-label-sm">Role (*):</label>
+                            <asp:DropDownList ID="ddlRole" runat="server" CssClass="form-select form-select-sm">
+                                <asp:ListItem Value="0" Selected="True">Admin</asp:ListItem>
+                                <asp:ListItem Value="1">Customer</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        </asp:DropDownList>
+                        <!-- FullName -->
+                        <div class="form-group">
+                            <label for="TxtFullName" class="col-form-label col-form-label-sm">Full name:</label>
+                            <asp:TextBox ID="TxtFullName" CssClass="form-control form-control-sm" TextMode="SingleLine" runat="server" MaxLength="50" />
+                        </div>
+
+                        <!-- UsePhone -->
+                        <div class="form-group">
+                            <label for="TxtUsePhone" class="col-form-label col-form-label-sm">Phone:</label>
+                            <asp:TextBox ID="TxtUsePhone" CssClass="form-control form-control-sm" TextMode="Phone" runat="server" MaxLength="11" />
+                        </div>
+                        <!-- UserEmail -->
+                        <div class="form-group">
+                            <label for="TxtUserEmail" class="col-form-label col-form-label-sm">Email:</label>
+                            <asp:TextBox ID="TxtUserEmail" CssClass="form-control form-control-sm" TextMode="Email" runat="server" MaxLength="50" />
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -187,11 +212,5 @@
             </div>
         </div>
     </form>
-
-    <script>
-
-        $("#lastname").html = "ok";
-
-    </script>
 
 </asp:Content>
