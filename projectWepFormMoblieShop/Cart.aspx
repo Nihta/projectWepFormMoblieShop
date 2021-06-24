@@ -102,7 +102,7 @@
                 <div class="custom-card ml-md-5 cart__check-out my-4 my-mt-0 mb-3">
                     <p class="f16 mb-2">Order Subtotal (2 items)</p>
                     <p class="f48 fw600">$70</p>
-                    <button class="btn btn-primary w-100 custom-btn text-uppercase" type="submit">check out</button>
+                    <a href="Checkout.aspx" class="btn btn-primary w-100 custom-btn text-uppercase" >check out</a>
                     <p class="mt-2 mb-0"><a class="custom-link text-capitalize" href="#">continue shopping</a></p>
                 </div>
             </div>
