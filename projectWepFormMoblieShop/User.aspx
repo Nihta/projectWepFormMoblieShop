@@ -98,11 +98,10 @@
                                 <asp:Label runat="server" Text='<%# Eval("UserRole").ToString() == "0" ? "Admin" : "Customer" %>' ID="LabelUserRole"></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox Text='<%# Bind("UserRole") %>' ID="TxtUserRole" CssClass="form-control form-control-sm" runat="server"></asp:TextBox>
-                                <%--                                <asp:DropDownList ID="ddlUserRole" runat="server"  CssClass="form-select form-select-sm" >
+                                <asp:DropDownList ID="DropDownListUserRole" CssClass="form-select form-select-sm" runat="server" SelectedValue='<%# Bind("UserRole") %>'>
                                     <asp:ListItem Value="0">Admin</asp:ListItem>
                                     <asp:ListItem Value="1">Customer</asp:ListItem>
-                                </asp:DropDownList>--%>
+                                </asp:DropDownList>
                             </EditItemTemplate>
                         </asp:TemplateField>
 
@@ -164,7 +163,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h6 class="modal-title" id="modalLabel">Add new brand</h6>
+                        <h6 class="modal-title" id="modalLabel">Add new user</h6>
                         <button type="button" class="btn btn-sm btn-close close" data-dismiss="modal" aria-label="Close" />
                     </div>
                     <div class="modal-body">
@@ -176,7 +175,7 @@
                         <!-- UserPassWord -->
                         <div class="form-group">
                             <label for="TxtUserPassWord" class="col-form-label col-form-label-sm">Password (*):</label>
-                            <asp:TextBox ID="TxtUserPassWord" CssClass="form-control form-control-sm" TextMode="Password" runat="server" MaxLength="30"  />
+                            <asp:TextBox ID="TxtUserPassWord" CssClass="form-control form-control-sm" TextMode="Password" runat="server" MaxLength="30" />
                         </div>
                         <!-- UserRole -->
                         <div class="form-group">
