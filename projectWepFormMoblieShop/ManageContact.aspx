@@ -23,12 +23,6 @@
                         <span style="white-space: nowrap">item / page</span>
                     </div>
                     <div class="d-flex flex-row align-items-center">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-sm btn-primary me-2" data-toggle="modal" data-target="#modalAdd">
-                            Add
-                        </button>
-                        <%--<asp:TextBox ID="TextBoxSearch" CssClass="form-control form-control-sm" TextMode="Search" runat="server">Search ...</asp:TextBox>
-                        <asp:Button ID="BtnSearch" CssClass="btn btn-primary btn-sm mx-2" Text="Seach" runat="server" />--%>
                     </div>
                 </div>
                 <%-- /Table Header --%>
