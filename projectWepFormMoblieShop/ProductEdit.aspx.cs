@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace projectWepFormMoblieShop
 {
     public partial class ProductEdit : System.Web.UI.Page
     {
+        private string oldImage;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ProductID"] != null)
+            if (Request.QueryString["ProductID"] == null)
             {
-                // 403
+                Response.Redirect("~/403.aspx");
             }
 
-            GetDataCategory();
-            GetDataBrand();
-            GetDataForm();
+            if (!this.IsPostBack)
+            {
+                GetDataForm();
+                GetDataCategory();
+                GetDataBrand();
+            }
         }
 
         private void GetDataCategory()
@@ -69,7 +70,7 @@ namespace projectWepFormMoblieShop
                 TextProductDesc.Text = res["ProductDesc"].ToString();
                 string BrandID = res["BrandID"].ToString();
                 string CategoryID = res["CategoryID"].ToString();
-                //string MainImage = res["MainImage"].ToString();
+                this.oldImage = res["MainImage"].ToString();
                 ddlBrand.SelectedValue = BrandID;
                 ddlCategory.SelectedValue = CategoryID;
             }
@@ -116,6 +117,10 @@ namespace projectWepFormMoblieShop
                 int BrandID = Convert.ToInt32(ddlBrand.SelectedValue.ToString());
                 int CategoryID = Convert.ToInt32(ddlCategory.SelectedValue.ToString());
                 string MainImage = GetUrlFile(FileUpload);
+                if (MainImage == null || MainImage.Length == 0)
+                {
+                    MainImage = oldImage;
+                }
                 int ProductID = Convert.ToInt32(Request.QueryString["ProductID"].ToString());
 
                 string query = string.Format(@"

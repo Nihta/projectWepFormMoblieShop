@@ -52,9 +52,27 @@
                         <asp:BoundField HeaderText="ID" ReadOnly="true" HeaderStyle-CssClass="header-style-id"
                             DataField="ProductID" SortExpression="ProductID"></asp:BoundField>
 
-                        <asp:TemplateField HeaderText="Product name" SortExpression="ProductName" HeaderStyle-CssClass="w-30">
+                        <asp:TemplateField HeaderText="Product name" SortExpression="ProductName" HeaderStyle-CssClass="">
                             <ItemTemplate>
                                 <asp:Label runat="server" Text='<%# Bind("ProductName") %>' ID="LabelProductName"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Product price" SortExpression="ProductPrice" HeaderStyle-CssClass="">
+                            <ItemTemplate>
+                                <asp:Label runat="server" Text='<%# Bind("ProductPrice") %>' ID="LabelProductPrice"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Brand" SortExpression="BrandName" HeaderStyle-CssClass="">
+                            <ItemTemplate>
+                                <asp:Label runat="server" Text='<%# Bind("BrandName") %>' ID="LabelBrandName"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Category" SortExpression="CategoryName" HeaderStyle-CssClass="">
+                            <ItemTemplate>
+                                <asp:Label runat="server" Text='<%# Bind("CategoryName") %>' ID="LabelCategoryName"></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -66,7 +84,8 @@
                                 <asp:LinkButton runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-outline-secondary btn-sm"></asp:LinkButton>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <a class="btn btn-outline-success btn-sm" href='ProductEdit.aspx?ProductID=<%#Eval("ProductID")%>'>Edit</a> 
+                                <a class="btn btn-outline-primary btn-sm" href='Product.aspx?ProductID=<%#Eval("ProductID")%>'>View</a>
+                                <a class="btn btn-outline-success btn-sm" href='ProductEdit.aspx?ProductID=<%#Eval("ProductID")%>'>Edit</a>
                                 <asp:LinkButton runat="server" Text="Delete" CommandName="Delete" OnClientClick="return confirm('Are you sure?');" CausesValidation="False" ID="LinkButton2" CssClass="btn btn-outline-danger btn-sm"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>

@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 
-    <div class="container-fluid mx-3">
+    <div class="container-fluid m-3">
         <h4 class="text-center">Add new product</h4>
 
         <form id="FormProduct" class="row g-3" runat="server">
