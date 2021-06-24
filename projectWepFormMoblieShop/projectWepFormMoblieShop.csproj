@@ -129,6 +129,7 @@
     <Content Include="images\speaker.svg" />
     <Content Include="images\time.svg" />
     <Content Include="ItemAdded.aspx" />
+    <Content Include="ManageContact.aspx" />
     <Content Include="Product.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -339,6 +340,13 @@
     </Compile>
     <Compile Include="ItemAdded.aspx.designer.cs">
       <DependentUpon>ItemAdded.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageContact.aspx.cs">
+      <DependentUpon>ManageContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageContact.aspx.designer.cs">
+      <DependentUpon>ManageContact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
