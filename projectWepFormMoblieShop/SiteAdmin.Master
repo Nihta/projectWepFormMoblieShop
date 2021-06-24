@@ -65,13 +65,23 @@
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Statistical</div>
-                        <a class="nav-link" href="CommingSoon.html">
+                        <a class="nav-link" href="CommingSoon.aspx">
                             <div class="sb-nav-link-icon"><i class="fas fa-hand-holding-usd"></i></div>
                             Order
                         </a>
-                        <a class="nav-link" href="CommingSoon.html">
+                        <a class="nav-link" href="CommingSoon.aspx">
                             <div class="sb-nav-link-icon"><i class="fas fa-file-invoice-dollar"></i></div>
                             Revenue
+                        </a>
+
+                        <div class="sb-sidenav-menu-heading">Other</div>
+                        <a class="nav-link" href="Default.aspx">
+                            <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+                            Home
+                        </a>
+                        <a class="nav-link" href="SignIn.aspx">
+                            <div class="sb-nav-link-icon"><i class="fas fa-angle-right"></i></div>
+                            Sign Out
                         </a>
                     </div>
                 </div>

@@ -181,7 +181,7 @@ namespace projectWepFormMoblieShop
         {
             if (!Regex.IsMatch(text, @"^\d+$"))
             {
-                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} không phải là số hợp lệ!");
+                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} is not is mumber!");
                 return false;
             }
 
@@ -198,19 +198,19 @@ namespace projectWepFormMoblieShop
 
             if (text.Length == 0)
             {
-                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} là bắt buộc !");
+                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} is reuire!");
                 return false;
             }
 
             if (text.Length < min)
             {
-                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} quá ngắn!");
+                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} too short!");
                 return false;
             }
 
             if (text.Length > max)
             {
-                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} quá dài!");
+                Helpers.RenderAlerts(Helpers.AlertType.warning, label, $"{name} too long!");
                 return false;
             }
 

@@ -18,8 +18,7 @@
                     <div>
                         <div class="form-group">
                             <label class="f16 text-capitalize" for="TextBoxFullName">
-                                Email<span class="color-red">
-                                    <abbr title="required">*</abbr></span></label>
+                                Email</label>
                             <asp:TextBox ID="TextBoxEmail" runat="server" class="form-control custom__select" TextMode="Email"></asp:TextBox>
                         </div>
 

@@ -56,16 +56,13 @@ namespace projectWepFormMoblieShop
             if (isValid(email, userName, passWord, passRepeat))
             {
 
-                //if (UserHelpers.CheckUserNameExist(userName))
-                //{
-                //    Helpers.RenderAlerts(Helpers.AlertType.warning, LabelWarning, $"Tên đăng nhập đã được sử dụng!");
-                //    SetFocus(TextBoxUserName);
-                //}
-                //else
-                //{
-                //    string passWordEncode = Helpers.EncodePassWord(passWord);
-                //    UserHelpers.Add(fullName, userName, passWord);
-                //}
+                string query = string.Format(@"
+                insert into tblUsers
+                (UserName, UserPassWord, UserEmail, UserRole)
+                values (N'{0}', N'{1}', N'{2}', {3});
+                ", userName, Helpers.encodePassWord(passWord), email, 1);
+
+                SqlHelpers.ExecuteNonQuery(query);
 
                 Helpers.RenderAlerts(Helpers.AlertType.success, LabelWarning, $"Sign Up Success!");
             }

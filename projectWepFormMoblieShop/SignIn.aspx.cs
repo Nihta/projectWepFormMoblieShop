@@ -38,6 +38,7 @@ namespace projectWepFormMoblieShop
                     Response.Redirect("~/Default.aspx");
                 } else
                 {
+                    // Admin
                     Response.Redirect("~/Brand.aspx");
                 }
             }
